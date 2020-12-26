@@ -7,7 +7,7 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 require 'faker'
 
-(1..100).each do |item|
+(1..300).each do |item|
   Item.create({
                  name: Faker::Name.name,
                  email: Faker::Internet.email,

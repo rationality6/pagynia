@@ -4,7 +4,14 @@ class ItemsController < ApplicationController
   # GET /items
   # GET /items.json
   def index
-    @pagy, @records = pagy(Item.all, items: 50)
+    @pagy, @records = pagy(Item.all, items: 60)
+
+    respond_to do |format|
+      format.html
+      format.json {
+        render json: { entries: render_to_string(partial: "posts", formats: [:html]), pagination: view_context.pagy_nav(@pagy) }
+      }
+    end
   end
 
   # GET /items/1
