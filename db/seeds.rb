@@ -7,10 +7,14 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 require 'faker'
 
+array0 = ["감자","고구마","버섯","산나물","스포애니"]
+array_length = array0.length
+
 (1..300).each do |item|
   Item.create({
                  name: Faker::Name.name,
                  email: Faker::Internet.email,
+                 spliter: array0[rand(array_length)],
                  age: rand(42)
                })
 end

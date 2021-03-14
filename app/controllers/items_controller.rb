@@ -19,6 +19,24 @@ class ItemsController < ApplicationController
   def show
   end
 
+  def splited
+
+    def splited_datas_by_column_spliter_from_item()
+      result = {}
+      Item.all.each do |single_item|
+        unless result.has_key?(single_item.spliter)
+          result[single_item.spliter] = [single_item]
+        else
+          result[single_item.spliter].push(single_item)
+        end
+      end
+      result
+    end
+
+    @data = splited_datas_by_column_spliter_from_item
+
+  end
+
   # GET /items/new
   def new
     @item = Item.new

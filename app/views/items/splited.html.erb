@@ -1,0 +1,11 @@
+<div>
+  <% @data.each do |single_data_array| %>
+    <div>
+      <div><%= single_data_array[0] %></div>
+      <% single_data_array[1].each do |item| %>
+        <div><%= item.name %><%= item.spliter %></div>
+      <% end %>
+    </div>
+    <br>
+  <% end %>
+</div>
